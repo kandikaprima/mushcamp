@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
         builder: (context, state) {
           if (state is SplashLoadingState) {
             return Center(
-              child: Image.asset('assets/webytor.png'),
+              child: Image.asset('assets/logo.png'),
             );
           }
           return Container();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mushcamp/constans.dart';
 
 class CapturePage extends StatelessWidget {
   const CapturePage({super.key});
@@ -7,50 +8,72 @@ class CapturePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
-        title: const Text(
+        backgroundColor: blueMain,
+        title: Text(
           "MushCamp",
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.w700,
-            color: Colors.white,
+            color: yellowMain,
           ),
         ),
         leading: IconButton(
-            onPressed: (){},
-            icon: Icon(Icons.arrow_back)
+          onPressed: (){
+            Navigator.pushNamed(context, '/home-page');
+          },
+          icon: Icon(Icons.arrow_back),
+          color: yellowMain,
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {
-              // Tambahkan logika untuk aksi pengaturan di sini
-              print('Settings button pressed');
-            },
+            icon: Image.asset('assets/logo.png'),
+            onPressed: () {},
           ),
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            FloatingActionButton(
-              onPressed: () {},
-              backgroundColor: Colors.teal,
-              child: const Icon(Icons.remove),
-            ),
-            const SizedBox(height: 10),
-            FloatingActionButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/detail-page');
-              },
-              backgroundColor: Colors.teal,
-              child: const Icon(Icons.add),
-            ),
-          ],
-        ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FloatingActionButton(
+                    shape: CircleBorder(),
+                    backgroundColor: blueMain,
+                    child: Image.asset(
+                      'assets/folder.png',
+                      width: 30,
+                      height: 30,
+                    ),
+                    onPressed: (){},
+                  ),
+                  SizedBox(width: 25),
+                  Transform.scale(
+                    scale: 1.5,
+                    child: FloatingActionButton(
+                      shape: CircleBorder(),
+                      backgroundColor: blueMain,
+                      child: Image.asset(
+                        'assets/scanButton.png',
+                        width: 35,
+                        height: 35,
+                      ),
+                      onPressed: (){
+                        Navigator.pushNamed(context, '/detail-page');
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
+            ],
+          ),
+
+        ],
       ),
       body: Container(
         padding: const EdgeInsets.all(12),
